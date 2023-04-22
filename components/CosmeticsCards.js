@@ -16,9 +16,10 @@ export default function CosmeticsCards({ cosmetics, paginate }) {
                     }
                     <h2>{cosmetic.name}</h2>
                     <p>{cosmetic.description}</p>
+                    <p>Type: {cosmetic.type.displayValue}</p>
                     <p>{cosmetic.set?.text}</p>
                     <p>{cosmetic.introduction?.text}</p>
-                    <p>Rarity: {cosmetic.rarity.value}</p>
+                    <p>Rarity: {cosmetic.rarity.displayValue}</p>
                 </div>
             )}
         </div>

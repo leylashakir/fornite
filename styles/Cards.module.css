@@ -4,20 +4,19 @@
     justify-content: center;
     flex-wrap: wrap;
     max-width: 800px;
-    margin-top: 3rem;
   }
   
   .card {
     margin: 1rem;
     flex-basis: 45%;
     padding: 1.5rem;
-    color: inherit;
+    color: #ddb1ff;
     text-decoration: none;
-    border: 1px solid #eaeaea;
+    border: 1px solid #3c0f84;
     border-radius: 10px;
     transition: color 0.15s ease, border-color 0.15s ease;
     position: relative;
-    width: auto;
+    height: 400px;
   }
   
   .card:hover,
@@ -25,17 +24,20 @@
   .card:active {
     border-color: #4c51f7;
     cursor: grab;
+    scale: 105%;
+    box-shadow: 5px 5px 5px	#3d02bd;
   }
 
   .card img {
     margin-right: auto;
     margin-left: auto;
     height: auto;
+    margin-bottom: 10px;
   }
 
   .card h2 {
     text-align: center;
-    color: #319236;
+    color: #efd2f8;
   }
   
   .card p {

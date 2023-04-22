@@ -18,9 +18,9 @@ export default function CosmeticsFilter({ cosmetics }) {
     const chapters = [...new Set(cosmetics.map((item) => item.introduction?.chapter))].filter(Number).sort()
 
     // Create a set with all the rarity values obtained from data
-    const rarity_values = [...new Set(cosmetics.map((item) => item.rarity.value))];
+    const rarity_values = [...new Set(cosmetics.map((item) => item.rarity.displayValue))];
 
-    const type_values = [...new Set(cosmetics.map((item) => item.type.value))].sort();
+    const type_values = [...new Set(cosmetics.map((item) => item.type.displayVvalue))].sort();
 
     const handleSelectSearchParam = (event) => {
         setFilterByParam(event.target.value);
@@ -33,7 +33,7 @@ export default function CosmeticsFilter({ cosmetics }) {
     function filterByRarity() {
         return cosmetics.filter(
             (cosmetic) => {
-                return cosmetic.rarity?.value == searchedCosmetic
+                return cosmetic.rarity?.displayValue == searchedCosmetic
             }
         )
     }
@@ -49,7 +49,7 @@ export default function CosmeticsFilter({ cosmetics }) {
     function filterByType() {
         return cosmetics.filter(
             (cosmetic) => {
-                return cosmetic.type.value == searchedCosmetic
+                return cosmetic.type.displayValue == searchedCosmetic
             }
         )
     }

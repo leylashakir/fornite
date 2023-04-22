@@ -14,6 +14,7 @@ export default function BannerCards({ banners, paginate }) {
               height={100} />
           }
           <h2>{banner.devName}</h2>
+          <p>{banner.description}</p>
         </div>
       )}
     </div>
