@@ -1,23 +1,37 @@
 import Head from 'next/head'
 import BannerCards from '@/components/BannerCards'
-import PageBottomNav from '@/components/PageBottomNav';
+import containerStyles from '../styles/Cards.module.css'
 import { useState } from 'react';
 
 export default function Banners({ banners }) {
-  const itemsShownOnPage = 6
-  const [currentPage, setCurrentPage] = useState(itemsShownOnPage);
+  const itemsShownOnPage = 2
+    const [currentPage, setCurrentPage] = useState(itemsShownOnPage);
+    const [previousPage, setPreviousPage] = useState(0);
 
-  function loadMore() {
-    setCurrentPage((prevPage) => prevPage + itemsShownOnPage)
-  }
+    function loadMore() {
+        setPreviousPage(currentPage);
+        setCurrentPage((prevPage) => prevPage + itemsShownOnPage)
+    }
+
+    function loadPrevious() {
+        setPreviousPage((currPage) => currPage - itemsShownOnPage)
+        setCurrentPage((prevPage) => prevPage - itemsShownOnPage)
+    }
 
   return (
     <>
       <Head>
         <title>Banners</title>
       </Head>
-      <BannerCards banners={banners} paginate={currentPage} />
-      <PageBottomNav loadMore={loadMore} />
+      <div className={containerStyles.mainContainer}>
+        <BannerCards 
+          banners={banners} 
+          currentPage={currentPage} 
+          previousPage={previousPage} 
+          loadMore={loadMore} 
+          loadPrevious={loadPrevious} 
+        />
+      </div>
     </>
   )
 }

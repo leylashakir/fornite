@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import cosmeticStyles from '../styles/Cards.module.css'
+import LoadNext from './LoadNext'
+import LoadPrevious from './LoadPrevious'
 
-export default function CosmeticsCards({ cosmetics, paginate }) {
+export default function CosmeticsCards({ cosmetics, previousPage, currentPage, loadMore, loadPrevious }) {
     return (
-        <div className={cosmeticStyles.grid}>
-            {cosmetics?.slice(0, paginate).map(cosmetic =>
+        <div className={cosmeticStyles.viewCardContainer}>
+            {previousPage != 0 ? <LoadPrevious loadPrevious={loadPrevious}/> : null}
+            {cosmetics?.slice(previousPage, currentPage).map(cosmetic =>
                 <div className={cosmeticStyles.card} key={cosmetic.id}>
                     {cosmetic.images.smallIcon &&
                         <Image
@@ -22,6 +25,7 @@ export default function CosmeticsCards({ cosmetics, paginate }) {
                     <p>Rarity: {cosmetic.rarity.displayValue}</p>
                 </div>
             )}
+            <LoadNext loadMore={loadMore}/>
         </div>
     )
 }

@@ -1,17 +1,24 @@
 import { useState } from 'react'
 import filterStyles from '../styles/Filter.module.css'
+import containerStyles from '../styles/Cards.module.css'
 import CosmeticsCards from './CosmeticsCards';
-import PageBottomNav from './PageBottomNav';
 
 export default function CosmeticsFilter({ cosmetics }) {
     const [cosmeticsToShow, setCosmeticsToShow] = useState(cosmetics);
     const [filterByParam, setFilterByParam] = useState('');
     const [searchedCosmetic, setSearchedCosmetic] = useState('Select an option: ');
-    const itemsShownOnPage = 6
+    const itemsShownOnPage = 2
     const [currentPage, setCurrentPage] = useState(itemsShownOnPage);
+    const [previousPage, setPreviousPage] = useState(0);
 
     function loadMore() {
+        setPreviousPage(currentPage);
         setCurrentPage((prevPage) => prevPage + itemsShownOnPage)
+    }
+
+    function loadPrevious() {
+        setPreviousPage((currPage) => currPage - itemsShownOnPage)
+        setCurrentPage((prevPage) => prevPage - itemsShownOnPage)
     }
 
     // Create a set of all the chapters and sort ascending
@@ -133,14 +140,20 @@ export default function CosmeticsFilter({ cosmetics }) {
                     </select>
                 }
                 <button
-                    className={filterStyles.button}
+                    className={filterStyles.filterButton}
                     onClick={() => handleSubmit(filterByParam)}
                 >
                     Filter
                 </button>
             </div>
-            <CosmeticsCards cosmetics={cosmeticsToShow} paginate={currentPage} />
-            <PageBottomNav loadMore={loadMore}/>
+            <div className={containerStyles.mainContainer}>
+                <CosmeticsCards 
+                    cosmetics={cosmeticsToShow}
+                    previousPage={previousPage}
+                    currentPage={currentPage} 
+                    loadMore={loadMore}
+                    loadPrevious={loadPrevious} />
+            </div>
         </>
     )
 }

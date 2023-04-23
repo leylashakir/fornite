@@ -1,9 +1,13 @@
-.grid {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.mainContainer {
+    display: grid;
     flex-wrap: wrap;
-    max-width: 800px;
+    margin: 1.5rem;
+  }
+
+  .viewCardContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   
   .card {
@@ -17,6 +21,7 @@
     transition: color 0.15s ease, border-color 0.15s ease;
     position: relative;
     height: 400px;
+    width: 400px;
   }
   
   .card:hover,

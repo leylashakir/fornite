@@ -24,7 +24,12 @@
     cursor: grab;
 }
 
-.button {
+.filterButton {
+    min-width: 100px;
+}
+
+.filterButton,
+.navButton {
     margin: 10px;
     border-radius: 10px;
     border-color: #319236;
@@ -32,14 +37,18 @@
     color: #319236;
     background-color: inherit;
     min-height: 40px;
-    min-width: 100px;
     font-size: 1.25rem;
-    padding: 5px;
-
 }
-.button:hover {
+
+.filterButton:hover,
+.navButton:hover {
     scale: 105%;
     box-shadow: 2px 2px 2px	#319236;
+    cursor: grab;
+}
+
+.filterButton {
+    min-width: 100px;
 }
 
 .label {

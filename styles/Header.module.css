@@ -1,25 +1,36 @@
-.title span {
-  color: #9d4dbb;
-  text-decoration: none;
-}
-
 .title {
-  margin: 10px;
+  margin: 1.5rem;
   line-height: 1.15;
   font-size: 4rem;
   color: #f3af19;
 }
 
+.title span {
+  color: #9d4dbb;
+  text-decoration: none;
+}
+
 .title,
 .description {
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .description {
   color:#319236;
   justify-content: center;
-  max-width: 600px;
-  margin: 10px;
+  margin: 1rem;
+  flex-basis: 45%;
+  padding: 1.5rem;
+  color: #ddb1ff;
+  text-decoration: none;
+  border: 1px solid #3c0f84;
+  border-radius: 10px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+  position: relative;
+  height: fit-content;
+  width: 500px;
 }
 
 .description h1 {
@@ -28,4 +39,12 @@
 
 .description span {
   color: #4c51f7;
+}
+
+.descriptionContainer {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  align-items: center;
 }

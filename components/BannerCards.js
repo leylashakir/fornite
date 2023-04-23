@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import bannerStyles from '../styles/Cards.module.css'
+import LoadNext from './LoadNext'
+import LoadPrevious from './LoadPrevious'
 
-export default function BannerCards({ banners, paginate }) {
+export default function BannerCards({ banners, previousPage, currentPage, loadMore, loadPrevious }) {
   return (
-    <div className={bannerStyles.grid}>
-      {banners.slice(0, paginate).map(banner =>
+    <div className={bannerStyles.viewCardContainer}>
+      {previousPage != 0 ? <LoadPrevious loadPrevious={loadPrevious}/> : null}
+      {banners.slice(previousPage, currentPage).map(banner =>
         <div className={bannerStyles.card} key={banner.id}>
           {banner.images.smallIcon &&
             <Image
@@ -17,6 +20,7 @@ export default function BannerCards({ banners, paginate }) {
           <p>{banner.description}</p>
         </div>
       )}
+      <LoadNext loadMore={loadMore}/>
     </div>
   )
 }
