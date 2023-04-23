@@ -2,6 +2,7 @@
 
 .title {
   font-family: 'Rubik Wet Paint';
+  font-weight: 300;
 }
 
 .title,
@@ -21,6 +22,7 @@
 
 .greeting {
   font-family: 'Sigmar';
+  font-weight: 300;
 }
 
 .description {
