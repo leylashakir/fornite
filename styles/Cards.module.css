@@ -2,6 +2,7 @@
     display: grid;
     flex-wrap: wrap;
     margin: 1.5rem;
+    width: 100%;
   }
 
   .viewCardContainer {
@@ -54,9 +55,12 @@
     height: 1em;
   }
   
-  @media (max-width: 600px) {
-    .grid {
-      width: 100%;
-      flex-direction: column;
+  @media (min-width: 200px) {
+    .mainContainer {
+      flex-wrap: nowrap;
+    }
+
+    .viewCardContainer {
+      flex-basis: 33%;
     }
   }

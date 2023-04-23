@@ -6,6 +6,7 @@ export default function Cosmetics({ cosmetics }) {
         <>
             <Head>
                 <title>Cosmetics</title>
+                <meta name="viewport" content="width=device-width,initial-scale=1"/>
             </Head>
             <CosmeticsFilter cosmetics={cosmetics} />
         </>

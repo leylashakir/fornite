@@ -27,7 +27,7 @@ export default function CosmeticsFilter({ cosmetics }) {
     // Create a set with all the rarity values obtained from data
     const rarity_values = [...new Set(cosmetics.map((item) => item.rarity.displayValue))];
 
-    const type_values = [...new Set(cosmetics.map((item) => item.type.displayVvalue))].sort();
+    const type_values = [...new Set(cosmetics.map((item) => item.type.displayValue))].sort();
 
     const handleSelectSearchParam = (event) => {
         setFilterByParam(event.target.value);
@@ -86,6 +86,7 @@ export default function CosmeticsFilter({ cosmetics }) {
             showNew() 
         }
         setCurrentPage(itemsShownOnPage)
+        setPreviousPage(0)
     }
 
     return (

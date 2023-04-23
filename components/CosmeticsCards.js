@@ -6,7 +6,7 @@ import LoadPrevious from './LoadPrevious'
 export default function CosmeticsCards({ cosmetics, previousPage, currentPage, loadMore, loadPrevious }) {
     return (
         <div className={cosmeticStyles.viewCardContainer}>
-            {previousPage != 0 ? <LoadPrevious loadPrevious={loadPrevious}/> : null}
+            {previousPage != 0 ? <LoadPrevious loadPrevious={loadPrevious}/> : ''}
             {cosmetics?.slice(previousPage, currentPage).map(cosmetic =>
                 <div className={cosmeticStyles.card} key={cosmetic.id}>
                     {cosmetic.images.smallIcon &&
